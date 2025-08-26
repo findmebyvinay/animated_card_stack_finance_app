@@ -130,7 +130,7 @@ class _AnimatedTransactionItemState extends State<AnimatedTransactionItem>
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        '${widget.transaction.amount > 0 ? '+' : ''}\$${widget.transaction.amount.abs().toStringAsFixed(2)}',
+                        '${widget.transaction.amount > 0 ? '+' : ''}Rs${widget.transaction.amount.abs().toStringAsFixed(2)}',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,

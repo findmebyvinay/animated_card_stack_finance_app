@@ -1,1 +1,1 @@
-enum CardType {visa,mastercard,amex }
+enum CardType {visa,mastercard,dollarcard }

@@ -1,5 +1,6 @@
+import 'dart:developer';
+
 import 'package:animated_card_stack_finance/core/constants/colors.dart';
-import 'package:animated_card_stack_finance/core/services/get_it/service_locator.dart';
 import 'package:animated_card_stack_finance/core/widgets/loader_widget.dart';
 import 'package:animated_card_stack_finance/core/widgets/widget_extension.dart';
 import 'package:animated_card_stack_finance/features/cards/bloc/cards_bloc.dart';
@@ -8,7 +9,7 @@ import 'package:animated_card_stack_finance/features/cards/domain/models/credit_
 import 'package:animated_card_stack_finance/features/cards/widgets/animated_card.dart';
 import 'package:animated_card_stack_finance/features/cards/widgets/transaction_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CardStackWidget extends StatefulWidget {
   final List<CreditCard> cards;
@@ -48,12 +49,14 @@ class _CardStackWidgetState extends State<CardStackWidget> with TickerProviderSt
         SizedBox(
           height: 300,
           child:_pageController!=null ? PageView.builder(
+            scrollDirection: Axis.horizontal,
+            physics:const AlwaysScrollableScrollPhysics(),
             controller: _pageController,
             onPageChanged: (index) {
               setState(() {
                 _currentIndex= index;
               });
-              getIt<CardsBloc>().add(SelectCardEvent(cardId:widget.cards[index].id));
+              context.read<CardsBloc>().add(SelectCardEvent(cardId:widget.cards[index].id));
             },
             itemCount: widget.cards.length,
             itemBuilder: (context,index){
@@ -75,10 +78,11 @@ class _CardStackWidgetState extends State<CardStackWidget> with TickerProviderSt
                     scale: 1-(value.abs()*0.1),
                     child: GestureDetector(
                     onTap: (){
-                      getIt<CardsBloc>().add(FlipCardEvent(card.id));
+                      log('card is added');
+                      context.read<CardsBloc>().add(FlipCardEvent(card.id));
                     },
                     child:AnimatedCard(card: card, isFlipped: isFlipped) ,
-                    ).padHorizontal(horizontal: 8.w),
+                    ).padHorizontal(horizontal: 8),
                   ), 
                   );
 
@@ -86,7 +90,7 @@ class _CardStackWidgetState extends State<CardStackWidget> with TickerProviderSt
                 );
             }):LoaderWidget(),
         ),
-        20.verticalSpace,
+        const SizedBox(height:20),
 
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -94,15 +98,21 @@ class _CardStackWidgetState extends State<CardStackWidget> with TickerProviderSt
             widget.cards.length,
              (index)=> AnimatedContainer(
               duration:const Duration(milliseconds: 300),
-              width: _currentIndex== index ? 24.w:8.w,
-              height: 8.h,
+              width: _currentIndex== index ? 24:8,
+              height: 8,
               decoration: BoxDecoration(
                 color: _currentIndex== index?AppColors.whiteColor:AppColors.whiteColor.withValues(alpha: 0.3),
                 borderRadius: BorderRadius.circular(4),
               ),
               )),
         ),
-        30.verticalSpace,
+        const SizedBox(height:30),
+        if(widget.selectedCardId==null) Text('No Recent Transaction Yet',
+        style: TextStyle(
+          color: AppColors.whiteColor,
+          fontSize: 24
+        ),
+        ),
          if (widget.selectedCardId != null) ...[
           Expanded(
             child: TransactionList(
