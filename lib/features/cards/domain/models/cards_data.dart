@@ -6,12 +6,12 @@ import 'package:animated_card_stack_finance/features/cards/domain/models/credit_
 class CardsData extends Equatable {
   final List<CreditCard>? cards;
   final String? selectedCardId;
-  final Set<String>? flippedCard;
+  final Set<String> flippedCard;
 const  CardsData(
     {
-    this.cards,
+    required this.cards,
     this.selectedCardId,
-    this.flippedCard,
+    this.flippedCard=const {},
     }
   );
 
