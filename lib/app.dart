@@ -3,9 +3,8 @@ import 'dart:developer';
 
 import 'package:animated_card_stack_finance/core/constants/colors.dart';
 import 'package:animated_card_stack_finance/core/services/get_it/service_locator.dart';
-import 'package:animated_card_stack_finance/core/services/spending_insights_services.dart';
 import 'package:animated_card_stack_finance/core/widgets/loader_widget.dart';
-import 'package:animated_card_stack_finance/features/cards/screen/card_stack_screen.dart';
+import 'package:animated_card_stack_finance/features/cards/presentation/screen/card_stack_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:lottie/lottie.dart';
@@ -26,7 +25,6 @@ class MainScreen extends Absmain{
   Future<void> _configureDependencies() async {
     try {
       await configureDependencies();
-      getIt.registerLazySingleton<SpendingInsightsServices>(() => SpendingInsightsServices());
       log('successfully configured');
     } catch (e) {
       log('failed to configure ');
