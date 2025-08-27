@@ -1,4 +1,4 @@
-Animated Card Stack Finance App
+    Animated Card Stack Finance App
 A modern, interactive Flutter-based mobile application designed to provide a visually engaging way to manage credit cards and track financial transactions. The app features a 3D card stack with parallax scrolling, card flip animations, and AI-powered spending insights, making it both functional and delightful to use. Built with clean architecture, SOLID principles, and state management using the BLoC pattern, it serves as a showcase for advanced Flutter UI and financial app development.
 Key Features
 
