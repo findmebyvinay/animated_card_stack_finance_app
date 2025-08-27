@@ -54,11 +54,11 @@ Includes realistic card elements like chip, magnetic strip, and contactless icon
 
 
 
-# Screensh
+# Video
 
 https://github.com/user-attachments/assets/3fbf2725-80b2-45d8-bcb0-f39f6194183e
 
-ots
+
 
 
 - Flutter SDK: >=3.0.0
@@ -129,7 +129,7 @@ Interact with the pie chart to highlight categories and view AI-generated tips.
 - Push to the branch (git push origin feature/YourFeature).
 - Open a pull request.
 
-### Flutter for the framework.
-### fl_chart for animated pie charts.
-### flutter_bloc for state management.
-### Lottie for splash screen animations.
+*  Flutter for the framework.
+*  fl_chart for animated pie charts.
+* flutter_bloc for state management.
+* Lottie for splash screen animations.
