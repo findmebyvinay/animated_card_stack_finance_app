@@ -8,11 +8,6 @@ class FlipCardEvent extends CardsEvent{
   final String cardId;
   FlipCardEvent(this.cardId);
 }
-class ComputeInsights extends CardsEvent{
-  final String cardId;
-  ComputeInsights(this.cardId);
-  
-}
  final class CardsResetEvent extends CardsEvent{}
 
  

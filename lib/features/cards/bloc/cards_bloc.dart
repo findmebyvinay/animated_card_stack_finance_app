@@ -3,12 +3,10 @@ import 'dart:developer';
 import 'package:animated_card_stack_finance/core/common/abs_normal_state.dart';
 import 'package:animated_card_stack_finance/core/common/failure_state.dart';
 import 'package:animated_card_stack_finance/core/enums/card_type.dart';
-import 'package:animated_card_stack_finance/core/services/spending_insights_services.dart';
 import 'package:animated_card_stack_finance/features/cards/bloc/cards_event.dart';
 import 'package:animated_card_stack_finance/features/cards/bloc/cards_state.dart';
 import 'package:animated_card_stack_finance/features/cards/domain/models/cards_data.dart';
 import 'package:animated_card_stack_finance/features/cards/domain/models/credit_card.dart';
-import 'package:animated_card_stack_finance/features/cards/domain/models/spending_insight.dart';
 import 'package:animated_card_stack_finance/features/cards/domain/models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,13 +14,11 @@ import 'package:injectable/injectable.dart';
 
 @lazySingleton
 class CardsBloc extends Bloc<CardsEvent,CardsState> {
-  final ISpendingInsightsProvider inSightProvider;
 
-  CardsBloc({required this.inSightProvider}):super( CardsInitial()){
+  CardsBloc():super( CardsInitial()){
     on<LoadCardsEvent>(_onLoadCardsEvent);
     on<SelectCardEvent> (_onSelectCardEvent);
     on<FlipCardEvent>(_onFlipCardEvent);
-    on<ComputeInsights>(_onComputeInsightsEvent);
     on<CardsResetEvent>((event, emit) => CardsInitial(),);
   }
 
@@ -76,20 +72,6 @@ class CardsBloc extends Bloc<CardsEvent,CardsState> {
     ));
     }
   }
-
-  Future<void> _onComputeInsightsEvent(ComputeInsights event, Emitter<CardsState> emit) async {
-    final currentState = state.cardState;
-    if (currentState is AbsNormalSuccessState<CardsData> && currentState.data != null) {
-      final card = currentState.data!.cards!.firstWhere((c) => c.id == event.cardId);
-      emit(state.copyWith(inSightState: AbsNormalLoadingState()));
-      try {
-        final insight = inSightProvider.computeInsights(card);
-        emit(state.copyWith(inSightState: AbsNormalSuccessState<SpendingInsight>(data: insight)));
-      } catch (e) {
-        emit(state.copyWith(inSightState: AbsNormalFailureState(failure: Failure(message: e.toString()))));
-      }
-    }
-  }
 } 
   List<CreditCard> _generateMockCards() {
     return [
@@ -112,14 +94,30 @@ class CardsBloc extends Bloc<CardsEvent,CardsState> {
             category: 'Coffee',
             icon: Icons.local_cafe,
           ),
-          Transaction(
-            id: 't2',
-            merchantName: 'Daraz',
-            amount: -2000,
+           Transaction(
+            id: 't3',
+            merchantName: 'Jeeve Nepal',
+            amount: -1500,
             date: DateTime.now().subtract(const Duration(days: 1)),
             category: 'Shopping',
             icon: Icons.shopping_bag,
           ),
+           Transaction(
+            id: 't4',
+            merchantName: 'Big Mart',
+            amount: -5000,
+            date: DateTime.now().subtract(const Duration(days: 1)),
+            category: 'Grocery',
+            icon: Icons.shopping_bag,
+          ), Transaction(
+            id: 't5',
+            merchantName: 'Nepal Electricity',
+            amount: -3000,
+            date: DateTime.now().subtract(const Duration(days: 1)),
+            category: 'Electricity Bill',
+            icon: Icons.receipt,
+          ),
+          
         ],
       ),
       CreditCard(
@@ -134,11 +132,27 @@ class CardsBloc extends Bloc<CardsEvent,CardsState> {
         secondaryColor: const Color.fromARGB(255, 158, 61, 23),
         recentTransactions: [
           Transaction(
-            id: 't3',
+            id: 't6',
             merchantName: 'Netflix',
             amount: -1000,
             date: DateTime.now().subtract(const Duration(days: 2)),
             category: 'Entertainment',
+            icon: Icons.movie,
+          ),
+          Transaction(
+            id: 't7',
+            merchantName: 'Samsung',
+            amount: -30000,
+            date: DateTime.now().subtract(const Duration(days: 2)),
+            category: 'Home appliance',
+            icon: Icons.shopping_cart,
+          ),
+          Transaction(
+            id: 't8',
+            merchantName: 'Spotify',
+            amount: -1000,
+            date: DateTime.now().subtract(const Duration(days: 2)),
+            category: 'Song',
             icon: Icons.movie,
           ),
         ],
@@ -155,29 +169,28 @@ class CardsBloc extends Bloc<CardsEvent,CardsState> {
         secondaryColor: const Color.fromARGB(255, 41, 43, 43),
         recentTransactions: [
           Transaction(
-            id: 't4',
+            id: 't9',
             merchantName: 'ABC Enterprise',
             amount: 9000,
             date: DateTime.now().subtract(const Duration(days: 3)),
             category: 'Business',
             icon: Icons.money,
           ),
-          Transaction(
-            id: 't5', 
-            merchantName: 'Bhatbhateni', 
-            amount: -55.5, 
-            date: DateTime.now().subtract(const Duration(
-              days: 2
-            )), 
-            category: 'Grocery', 
-            icon: Icons.shopping_bag),
             Transaction(
-            id: 't6',
+            id: 't11',
             merchantName: 'Anta Shoes',
             amount: -9000,
             date: DateTime.now().subtract(const Duration(days: 3)),
             category: 'shopping',
             icon: Icons.sports_basketball_rounded,
+          ),
+          Transaction(
+            id: '12',
+            merchantName: 'Amazon',
+            amount: -10000,
+            date: DateTime.now().subtract(const Duration(days: 2)),
+            category: 'Camera',
+            icon: Icons.camera,
           ),
         ],
       ),

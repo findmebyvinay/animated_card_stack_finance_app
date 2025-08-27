@@ -1,6 +1,6 @@
 import 'package:animated_card_stack_finance/core/common/abs_normal_state.dart';
 import 'package:animated_card_stack_finance/features/cards/domain/models/cards_data.dart';
-import 'package:animated_card_stack_finance/features/cards/domain/models/spending_insight.dart';
+import 'package:animated_card_stack_finance/features/insight/domain/model/spending_insight.dart';
 import 'package:equatable/equatable.dart';
 
 sealed class CardsState extends Equatable{
