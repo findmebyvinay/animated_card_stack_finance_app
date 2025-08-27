@@ -57,10 +57,10 @@ Includes realistic card elements like chip, magnetic strip, and contactless icon
 # Screenshots
 
 
-Flutter SDK: >=3.0.0
-Dart: >=3.0.0
-IDE: VS Code or Android Studio with Flutter plugin
-Emulator or physical device for testing
+- Flutter SDK: >=3.0.0
+- Dart: >=3.0.0
+- IDE: VS Code or Android Studio with Flutter plugin
+- Emulator or physical device for testing
 
 # Installation
 
