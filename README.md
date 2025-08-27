@@ -109,11 +109,10 @@ Press the "Insights" icon in the app bar to view transactions and a pie chart wi
 Interact with the pie chart to highlight categories and view AI-generated tips.
 
 # Future Enhancements
-
-## Biometric Authentication: Add local_auth for secure card access.
-## Voice Commands: Integrate speech_to_text for hands-free navigation.
-## Budget Tracker: Allow users to set budgets with animated progress bars.
-## P2P Transfers: Implement QR code-based mock transfers using mobile_scanner and qr_flutter.
+- Biometric Authentication: Add local_auth for secure card access.
+- Voice Commands: Integrate speech_to_text for hands-free navigation.
+- Budget Tracker: Allow users to set budgets with animated progress bars.
+- P2P Transfers: Implement QR code-based mock transfers using mobile_scanner and qr_flutter.
 
 # Contributing
 ## Contributions are welcome! Please:
