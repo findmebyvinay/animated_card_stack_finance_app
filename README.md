@@ -1,5 +1,5 @@
 # Animated Card Stack Finance App
-## A modern, interactive Flutter-based mobile application designed to provide a visually engaging way to manage credit cards and track financial transactions. The app features a 3D card stack with parallax scrolling, card flip animations, and AI-powered spending insights, making it both functional and delightful to use. Built with clean architecture, SOLID principles, and state management using the BLoC pattern, it serves as a showcase for advanced Flutter UI and financial app development.
+### A modern, interactive Flutter-based mobile application designed to provide a visually engaging way to manage credit cards and track financial transactions. The app features a 3D card stack with parallax scrolling, card flip animations, and AI-powered spending insights, making it both functional and delightful to use. Built with clean architecture, SOLID principles, and state management using the BLoC pattern, it serves as a showcase for advanced Flutter UI and financial app development.
 # Key Features
 
 ## 3D Card Stack with Parallax Scrolling: 
@@ -64,21 +64,23 @@ Includes realistic card elements like chip, magnetic strip, and contactless icon
 
 # Installation
 
-    Clone the repository:git clone https://github.com/yourusername/animated-card-stack-finance.git
+    Clone the repository:
+    git clone https://github.com/yourusername/animated-card-stack-finance.git
     cd animated-card-stack-finance
 
 
-    Install dependencies:flutter pub get
+    Install dependencies:
+    flutter pub get
 
 # Ensure required packages are included in pubspec.yaml:dependencies:
-  flutter:
-    sdk: flutter
-  flutter_bloc: ^8.1.3
-  injectable: ^2.1.0
-  get_it: ^7.2.0
-  fl_chart: ^0.68.0
-  lottie: ^3.1.2
-  flutter_localization: ^0.2.0
+  - flutter:
+    - sdk: flutter
+  - flutter_bloc: ^8.1.3
+  - injectable: ^2.1.0
+  - get_it: ^7.2.0
+  - fl_chart: ^0.68.0
+  - lottie: ^3.1.2
+  - flutter_localization: ^0.2.0
 
 
 ## Run the app:
