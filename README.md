@@ -54,7 +54,11 @@ Includes realistic card elements like chip, magnetic strip, and contactless icon
 
 
 
-# Screenshots
+# Screensh
+
+https://github.com/user-attachments/assets/3fbf2725-80b2-45d8-bcb0-f39f6194183e
+
+ots
 
 
 - Flutter SDK: >=3.0.0
