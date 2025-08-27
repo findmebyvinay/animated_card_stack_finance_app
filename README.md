@@ -87,18 +87,18 @@ Emulator or physical device for testing
 
 
 # Project Structure
-lib/
-├── core/                     # Core utilities and services
-│   ├── constants/            # Colors, enums, etc.
-│   ├── services/             # Dependency injection and SpendingInsightsService
-│   └── widgets/              # Reusable widgets (e.g., LoaderWidget)
-├── features/                 # Feature-specific code
-│   └── cards/                # Card-related functionality
-│       ├── bloc/             # BLoC for state management
-│       ├── domain/           # Models (CreditCard, SpendingInsight, Transaction)
-│       ├── presentation/           # UI screens (CardStackScreen, InsightsScreen)
-│       └── widgets/          # Card and transaction widgets
-├── main.dart                 # App entry point
+    lib/
+    ├── core/                     # Core utilities and services
+    │   ├── constants/            # Colors, enums, etc.
+    │   ├── services/             # Dependency injection and SpendingInsightsService
+    │   └── widgets/              # Reusable widgets (e.g., LoaderWidget)
+    ├── features/                 # Feature-specific code
+    │   └── cards/                # Card-related functionality
+    │       ├── bloc/             # BLoC for state management
+    │       ├── domain/           # Models (CreditCard, SpendingInsight, Transaction)
+    │       ├── presentation/           # UI screens (CardStackScreen, InsightsScreen) 
+    │       └── widgets/          # Card and transaction widgets
+    ├── main.dart                 # App entry point
 
 # Usage
 
