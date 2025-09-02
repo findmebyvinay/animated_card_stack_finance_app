@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'package:animated_card_stack_finance/core/common/abs_normal_state.dart';
 import 'package:animated_card_stack_finance/core/common/failure_state.dart';
 import 'package:animated_card_stack_finance/core/enums/card_type.dart';
-import 'package:animated_card_stack_finance/features/cards/bloc/cards_event.dart';
-import 'package:animated_card_stack_finance/features/cards/bloc/cards_state.dart';
+import 'package:animated_card_stack_finance/features/cards/presentation/bloc/cards_event.dart';
+import 'package:animated_card_stack_finance/features/cards/presentation/bloc/cards_state.dart';
 import 'package:animated_card_stack_finance/features/cards/domain/models/cards_data.dart';
 import 'package:animated_card_stack_finance/features/cards/domain/models/credit_card.dart';
 import 'package:animated_card_stack_finance/features/cards/domain/models/transaction.dart';
@@ -89,6 +89,22 @@ class CardsBloc extends Bloc<CardsEvent,CardsState> {
           Transaction(
             id: 't1',
             merchantName: 'Himalayan Java',
+            amount: -1500.50,
+            date: DateTime.now().subtract(const Duration(hours: 2)),
+            category: 'Coffee',
+            icon: Icons.local_cafe,
+          ),
+           Transaction(
+            id: 't1',
+            merchantName: 'Himalayan Java',
+            amount: -450.50,
+            date: DateTime.now().subtract(const Duration(hours: 2)),
+            category: 'Coffee',
+            icon: Icons.local_cafe,
+          ),
+           Transaction(
+            id: 't1',
+            merchantName: 'Better Coffee',
             amount: -450.50,
             date: DateTime.now().subtract(const Duration(hours: 2)),
             category: 'Coffee',

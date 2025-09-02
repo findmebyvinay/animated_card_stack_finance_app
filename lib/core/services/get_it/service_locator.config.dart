@@ -13,9 +13,11 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
-import '../../../features/cards/bloc/cards_bloc.dart' as _i608;
+import '../../../features/cards/presentation/bloc/cards_bloc.dart' as _i365;
 import '../../../features/insight/data/insights_repo_impl.dart' as _i784;
 import '../../../features/insight/domain/repo/insights_repo.dart' as _i492;
+import '../../../features/insight/presentation/bloc/insights_bloc.dart'
+    as _i172;
 import '../../bloc/internet_cubit.dart' as _i636;
 import '../../bloc/language_cubit.dart' as _i957;
 import '../local_storage/shared_pref_data.dart' as _i324;
@@ -37,11 +39,14 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i636.InternetCubit>(() => _i636.InternetCubit());
     gh.lazySingleton<_i957.LanguageCubit>(() => _i957.LanguageCubit());
-    gh.lazySingleton<_i608.CardsBloc>(() => _i608.CardsBloc());
+    gh.lazySingleton<_i365.CardsBloc>(() => _i365.CardsBloc());
     gh.lazySingleton<_i324.SharedPrefData>(() => _i566.SharedPrefDataImpl());
     gh.factory<_i492.InsightsRepo>(() => _i784.InsightsRepoImpl());
     gh.lazySingleton<_i942.SharedPrefsServices>(
       () => _i942.SharedPrefsServices(gh<_i460.SharedPreferences>()),
+    );
+    gh.lazySingleton<_i172.InsightsBloc>(
+      () => _i172.InsightsBloc(gh<_i492.InsightsRepo>()),
     );
     return this;
   }

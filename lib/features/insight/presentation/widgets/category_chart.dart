@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'package:animated_card_stack_finance/core/constants/colors.dart';
 import 'package:animated_card_stack_finance/features/insight/domain/model/category_spending.dart';
 import 'package:flutter/material.dart';
 
@@ -55,17 +54,17 @@ class _CategoryChartState extends State<CategoryChart>
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: AppColors.backgroundColor,
+        color: const Color.fromARGB(255, 46, 106, 80),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: Colors.white.withValues(alpha: 0.1),
+          color: Colors.white.withValues(alpha: 0.2),
           width: 1,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.white,
+            color: const Color.fromARGB(255, 109, 157, 120),
             blurRadius: 15,
-            offset: Offset(0, 5)
+            offset: Offset(0, 4)
           )
         ]
       ),

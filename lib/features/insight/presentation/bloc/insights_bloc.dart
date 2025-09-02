@@ -4,7 +4,9 @@ import 'package:animated_card_stack_finance/features/insight/domain/repo/insight
 import 'package:animated_card_stack_finance/features/insight/presentation/bloc/insights_event.dart';
 import 'package:animated_card_stack_finance/features/insight/presentation/bloc/insights_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
+@lazySingleton
 class InsightsBloc extends Bloc<InsightsEvent,InsightsState>{
   final InsightsRepo _repo;
 

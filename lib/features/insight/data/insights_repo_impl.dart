@@ -13,22 +13,22 @@ class InsightsRepoImpl implements InsightsRepo{
     await Future.delayed(const Duration(milliseconds: 500));
     final insights=<SpendingInsight>[];
     final totalBalance= cards.fold<double>(0, (sum,card)=> sum + card.balance);
-    if(totalBalance>100000){
+    if(totalBalance>1000000){
       insights.add(const SpendingInsight(
         id: '1', 
         title: 'High Balance Alert', 
         description: 'You have a high balance across your cards.Consider investing or savings', 
         type: InsightType.tip, 
         icon: Icons.trending_up, 
-        color: Colors.blue,
-        actionText: 'View Investment Options'
+        color: Colors.amber,
+        actionText: 'View Ivestment Options'
         ));
     }
     final coffeeTransactions=cards.expand(
       (card)=> card.recentTransactions
     ).where((t)=>t.category.toLowerCase().contains('coffee')).length;
 
-    if(coffeeTransactions>= 2){
+    if(coffeeTransactions> 2){
       insights.add(
         SpendingInsight(
           id: '2', 

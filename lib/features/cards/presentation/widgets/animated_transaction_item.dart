@@ -108,7 +108,7 @@ class _AnimatedTransactionItemState extends State<AnimatedTransactionItem>
                       children: [
                         Text(
                           widget.transaction.merchantName,
-                          style: const TextStyle(
+                          style: const TextStyle(        
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                             color: Colors.black87,

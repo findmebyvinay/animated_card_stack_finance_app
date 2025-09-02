@@ -42,7 +42,7 @@ class _InsightCardState extends State<InsightCard>
     ));
     
     _scaleAnimation = Tween<double>(
-      begin: 0.8,
+      begin: 0,
       end: 1.0,
     ).animate(CurvedAnimation(
       parent: _controller,
@@ -83,7 +83,7 @@ class _InsightCardState extends State<InsightCard>
                     BoxShadow(
                       color: widget.insight.color.withValues(alpha: 0.3),
                       blurRadius: 20,
-                      offset: const Offset(0, 8),
+                      offset: const Offset(0, 5),
                     ),
                   ],
                 ),
@@ -175,7 +175,7 @@ class _InsightCardState extends State<InsightCard>
         indicatorIcon = Icons.warning_amber;
         break;
       case InsightType.tip:
-        indicatorColor = Colors.blue;
+        indicatorColor = Colors.amberAccent;
         indicatorIcon = Icons.lightbulb;
         break;
       case InsightType.achievement:

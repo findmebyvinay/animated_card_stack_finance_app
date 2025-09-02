@@ -1,8 +1,8 @@
 import 'package:animated_card_stack_finance/core/constants/colors.dart';
 import 'package:animated_card_stack_finance/core/constants/enum.dart';
-import 'package:animated_card_stack_finance/features/cards/bloc/cards_bloc.dart';
-import 'package:animated_card_stack_finance/features/cards/bloc/cards_event.dart';
-import 'package:animated_card_stack_finance/features/cards/bloc/cards_state.dart';
+import 'package:animated_card_stack_finance/features/cards/presentation/bloc/cards_bloc.dart';
+import 'package:animated_card_stack_finance/features/cards/presentation/bloc/cards_event.dart';
+import 'package:animated_card_stack_finance/features/cards/presentation/bloc/cards_state.dart';
 import 'package:animated_card_stack_finance/features/cards/presentation/widgets/card_stack_widget.dart';
 import 'package:animated_card_stack_finance/features/insight/presentation/screen/insights_screen.dart';
 import 'package:flutter/material.dart';

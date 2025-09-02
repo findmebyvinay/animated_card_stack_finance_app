@@ -46,12 +46,19 @@ class _MonthlyTrendsChartState extends State<MonthlyTrendsChart>
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
+        color:  const Color.fromARGB(255, 46, 106, 80),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: Colors.white.withValues(alpha: 0.1),
           width: 1,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: const Color.fromARGB(255, 112, 154, 128),
+            offset: Offset(0, 4),
+            blurRadius: 10
+          )
+        ]
       ),
       child: Column(
         children: [
