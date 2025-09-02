@@ -171,6 +171,14 @@ class CardsBloc extends Bloc<CardsEvent,CardsState> {
             category: 'Song',
             icon: Icons.movie,
           ),
+           Transaction(
+            id: 't8',
+            merchantName: 'Sony Camera',
+            amount: -200000,
+            date: DateTime.now().subtract(const Duration(days: 2)),
+            category: 'personal expenses',
+            icon: Icons.movie,
+          ),
         ],
       ),
       CreditCard(
